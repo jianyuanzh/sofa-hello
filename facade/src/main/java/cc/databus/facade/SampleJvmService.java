@@ -1,4 +1,4 @@
-package cc.databus.service;
+package cc.databus.facade;
 
 /**
  * @author jianyuan

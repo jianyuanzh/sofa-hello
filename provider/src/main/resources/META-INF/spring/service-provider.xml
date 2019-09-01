@@ -2,19 +2,19 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:sofa="http://sofastack.io/schema/sofaboot"
-       xmlns:context="http://www.springframework.org/schema/context"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-            http://sofastack.io/schema/sofaboot http://sofastack.io/schema/sofaboot.xsd">
+            http://sofastack.io/schema/sofaboot http://sofastack.io/schema/sofaboot.xsd"
+       default-autowire="byName">
 
-    <bean id="sampleJvmService" class="cc.databus.service.impl.SampleJvmServiceImpl">
+    <bean id="sampleJvmService" class="cc.databus.service.SampleJvmServiceImpl">
         <property name="message" value="Hello, jvm service xml implementation." />
     </bean>
 
-    <bean id="sampleJvmServiceAnnotation" class="cc.databus.service.impl.SampleJvmServiceAnnotationImpl" />
+    <bean id="sampleJvmServiceAnnotation" class="cc.databus.service.SampleJvmServiceAnnotationImpl" />
 
-    <bean id="publishServiceWithClient" class="cc.databus.service.PublisServiceWithClient" />
+    <bean id="publishServiceWithClient" class="cc.databus.service.PublishServiceWithClient" init-method="init"/>
 
-    <sofa:service ref="sampleJvmService" interface="com.alipay.sofa.isle.sample.SampleJvmService">
+    <sofa:service ref="sampleJvmService" interface="cc.databus.facade.SampleJvmService" unique-id="xmlImplement">
         <sofa:binding.jvm/>
     </sofa:service>
 </beans>

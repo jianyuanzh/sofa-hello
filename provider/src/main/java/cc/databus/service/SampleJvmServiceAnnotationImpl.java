@@ -1,6 +1,6 @@
-package cc.databus.service.impl;
+package cc.databus.service;
 
-import cc.databus.service.SampleJvmService;
+import cc.databus.facade.SampleJvmService;
 import com.alipay.sofa.runtime.api.annotation.SofaService;
 
 /**
